@@ -12,3 +12,5 @@ apt-get install stress
 
 stress --cpu 1--timeout 30
 apt-get install htop
+
+package lock and yarn lock 

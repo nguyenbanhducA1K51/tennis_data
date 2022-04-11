@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../pern-todo-app-master"
+		}
+	],
+	"settings": {}
+}

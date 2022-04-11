@@ -1,0 +1,1 @@
+to run server. run node index or nodemon index

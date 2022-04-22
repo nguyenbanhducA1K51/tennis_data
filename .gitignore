@@ -8,3 +8,6 @@ step.txt
 new_thing.txt 
 .DS_Store
 wooork.code-workspace
+backup
+build
+run.txt

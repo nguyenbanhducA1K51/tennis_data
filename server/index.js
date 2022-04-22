@@ -2,12 +2,19 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require("./db");
-
+const port=3200
 //middleware
 app.use(cors());// why need cors
 app.use(express.json()); //req.body
 
-
+app.get("/",async(req,res)=>{
+  try {
+    res.json("abc=d");
+  } catch (error) {
+    console.log(error);
+    
+  }
+})
 app.get("/all", async (req, res) => {
   try {
   
@@ -22,6 +29,6 @@ const year=req.query.year;
     console.error(err.message);
   }
 });
-app.listen(2000, () => {
-  console.log("server has started on port ");
+app.listen(port, () => {
+  console.log("server has started on port "+port);
 });

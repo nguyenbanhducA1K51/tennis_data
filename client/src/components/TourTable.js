@@ -4,12 +4,13 @@ import TourInfo from "./TourInfo";
 //import { unstable_batchUpdates } from 'react-dom';
 const TourTable = () => {
   const [state, setState] = useState({ curtour: {}, suggestionList: [] });
-  //console.log("len  "+suggestionList.length);
+  //console.log("len  "+state.suggestionList);
 
   const searchTour = async (tour) => {
     try {
-      const tourname = tour.tourname;
+      const tourname = tour.name;
       const year = tour.year;
+    
       const response = await fetch(
         `https://tennisforehand.xyz/api/all?tourname=${encodeURIComponent(
           tourname
@@ -21,11 +22,10 @@ const TourTable = () => {
       );
       const data = await response.json();
 
-      console.log("data " + data);
+      //console.log("data " + data);
 
       if (data.length != 0) {
-        //     settour(data[0]);
-        // setSuggestionList([]);
+       
         setState((prevState) => {
           return {
             ...prevState,
@@ -34,6 +34,7 @@ const TourTable = () => {
           };
         });
       } else {
+       
         const res = await fetch(
           `https://tennisforehand.xyz/api/validyear?tourname=${encodeURIComponent(
             tourname
@@ -41,13 +42,13 @@ const TourTable = () => {
           {
             method: "GET",
             headers: { "Content-Type": "application/json" },
-            //body: JSON.stringify(body)
+            
           }
         );
-        //console.log(res.json());
+      
         const rawlist = await res.json();
         const yearlist = rawlist.map((year) => year.tourney_year);
-        //console.log(yearlist);
+        console.log("yearlist"+ yearlist);
         setState((prevState) => {
           return { ...prevState, suggestionList: yearlist };
         });
@@ -56,15 +57,15 @@ const TourTable = () => {
       console.log(err.message);
     }
   };
-  //   { suggestionList }.length != 0
+  
   const DisplaySuggestion = ({ suggestionList }) => {
     return (
       <>
-        {/* {console.log("yooo "+suggestionList.length)} */}
+       
 
         {suggestionList.length !== 0 ? (
           <>
-            {/* {console.log("yooo "+suggestionList.length)} */}
+            
             <div
               className="border border-warning w-75"
               style={{ width: "500px", textAlign: "center" }}

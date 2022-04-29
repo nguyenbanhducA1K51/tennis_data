@@ -15,7 +15,7 @@ return (
         <tbody>
           <tr>
               <td>Tour Name</td>
-              <td> {tour==null? "":tour.tourney_order}</td>
+              <td> {tour==null? "":tour.tourney_name}</td>
           </tr>
           
           <tr>
